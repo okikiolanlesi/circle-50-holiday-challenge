@@ -1,0 +1,23 @@
+{
+  "name": "circle-50-holiday-challenge",
+  "version": "1.0.0",
+  "description": "### What Solidify what you’ve learnt by building cool simple things you can showcase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okikiolanlesi/circle-50-holiday-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okikiolanlesi/circle-50-holiday-challenge/issues"
+  },
+  "homepage": "https://github.com/okikiolanlesi/circle-50-holiday-challenge#readme",
+  "dependencies": {
+    "yarn": "^1.22.19"
+  }
+}

@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name of chosen challenge</title>
+    <title>Redactr</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <h2>make some magic here!!</h2>
+     <div class="container">
+        <div>
+    <h2 class="title">make some magic here!!</h2>
+    <label class="label" for="initial_text">Input text here</label>
+    <input id="initial_text" type="text" />
+    <label class="label" for="words_to_scramble">Choose words to hide</label>
+    <input  id="words_to_scramble" type="text" />
+    <label class="label" for="symbol">Choose symbol to use</label>
+    <input id="symbol" type="text" />
+    <button id="scrambleText">Redact</button>
+    <div class="output">
+    <div class="displayTitles">Your scrambled text will show here⬇ </div>
+    <div class="display" id="scrambledTextDisplayedHere"></div>
+    </div>
+    </div>
+    </div>
 
     <!-- // ============= EEND DO NOT EDIT ============== // -->
     <script src="index.mjs" type="module"></script>

@@ -4,12 +4,72 @@ function startApp() {
     // so create and use/call additional functions from here
   
     // pls remove the below and make some magic in here!
-    console.log('make magic in here!');
-  
-    const header = document.querySelector('h2');
-    if(header) {
-      header.textContent = 'make some magic here!!';
+  let initialTextArray = [];
+let scrambleWordsArray = null;
+let symbolSelected;
+// // Advanced features
+const symbolSelect = document.getElementById("symbol");
+symbol.addEventListener("change", () => {
+  symbolSelected = symbol.value;
+});
+
+// // Takes the initial Text and puts them in array
+const initialText = document.getElementById("initial_text");
+initialText.addEventListener("change", () => {
+  initialTextArray = initialText.value.split(" ");
+});
+
+// // //Takes the words that needs to be scrambled and puts them in an array
+const wordsToScramble = document.getElementById("words_to_scramble");
+wordsToScramble.addEventListener("change", () => {
+  scrambleWordsArray = wordsToScramble.value.split(" ");
+});
+
+// //Get exact number of symbols to display
+const exactLength = (string) => {
+  let symbol = [];
+  for (let i = 0; i < string.length; i++) {
+    if (!symbolSelected) {
+      symbol.push("*");
+    } else {
+      symbol.push(symbolSelected);
     }
+  }
+  return symbol.join("");
+};
+
+// // Replaces Original Text with asterisks
+
+const scrambleText = (OriginalArray, wordsToScrambleArray) => {
+  const start = Date.now();
+  let matchedCount = 0;
+  let CharacterCount = 0;
+  let newArray = [...OriginalArray];
+  wordsToScrambleArray.forEach((element) => {
+    for (let i = 0; i < newArray.length; i++) {
+      if (element == newArray[i]) {
+        CharacterCount += newArray[i].length;
+        newArray[i] = exactLength(newArray[i]);
+        matchedCount += 1;
+      } else {
+        newArray[i] = newArray[i];
+      }
+    }
+  });
+  const numberOfScannedWords = OriginalArray.length;
+  console.log(`number of scanned words: ${numberOfScannedWords}`);
+  console.log(`number of matched words: ${matchedCount}`);
+  console.log(`Character count: ${CharacterCount}`);
+  console.log(`Time taken: ${Date.now() - start} milliseconds`);
+  return newArray.join(" ");
+};
+
+// // // Assigns the scrambleText function to the button and displays the scrambled text on the HTML page
+document.getElementById("scrambleText").addEventListener("click", () => {
+  console.log(scrambleText(initialTextArray, scrambleWordsArray));
+  document.getElementById("scrambledTextDisplayedHere").innerHTML =
+    scrambleText(initialTextArray, scrambleWordsArray);
+});
   };
   
   // ======= DO NOT EDIT ============== //
