@@ -26,13 +26,13 @@ function startApp() {
   // // Takes the initial Text and puts them in array
   const initialText = document.getElementById("initial_text");
   initialText.addEventListener("change", () => {
-    initialTextArray = initialText.value.toLowerCase().split(" ");
+    initialTextArray = initialText.value.split(" ");
   });
 
   // // //Takes the words that needs to be scrambled and puts them in an array
   const wordsToScramble = document.getElementById("words_to_scramble");
   wordsToScramble.addEventListener("change", () => {
-    scrambleWordsArray = wordsToScramble.value.toLowerCase().split(" ");
+    scrambleWordsArray = wordsToScramble.value.split(" ");
   });
 
   // //Get exact number of symbols to display
@@ -57,7 +57,11 @@ function startApp() {
     let newArray = [...OriginalArray];
     wordsToScrambleArray.forEach((element) => {
       for (let i = 0; i < newArray.length; i++) {
-        if (element == newArray[i]) {
+        if (
+          element.localeCompare(newArray[i], undefined, {
+            sensitivity: "accent",
+          }) === 0
+        ) {
           CharacterCount += newArray[i].length;
           newArray[i] = exactLength(newArray[i]);
           matchedCount += 1;
