@@ -14,6 +14,8 @@ function startApp() {
   });
 
   //Get stats html
+  const statsTitle = document.getElementById("stats_title");
+
   const wordScannedCount = document.getElementById("words_scanned_count");
   const wordsMatchedCount = document.getElementById("words_matched_count");
   const charactersScrambledCount = document.getElementById(
@@ -67,9 +69,10 @@ function startApp() {
     timeTaken.innerHTML = `Time taken: ${((Date.now() - start) / 1000).toFixed(
       2
     )} seconds`;
+    statsTitle.innerHTML = `STATS`;
     const numberOfScannedWords = OriginalArray.length;
-    wordScannedCount.innerHTML = `number of scanned words: ${numberOfScannedWords}`;
-    wordsMatchedCount.innerHTML = `number of matched words: ${matchedCount}`;
+    wordScannedCount.innerHTML = `Number of scanned words: ${numberOfScannedWords}`;
+    wordsMatchedCount.innerHTML = `Number of matched words: ${matchedCount}`;
     charactersScrambledCount.innerHTML = `Character count: ${CharacterCount}`;
 
     return newArray.join(" ");
