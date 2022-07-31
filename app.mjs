@@ -13,6 +13,14 @@ symbol.addEventListener("change", () => {
   symbolSelected = symbol.value;
 });
 
+  //Get stats html
+const wordScannedCount = document.getElementById("words_scanned_count");
+const wordsMatchedCount = document.getElementById("words_matched_count");
+const charactersScrambledCount = document.getElementById(
+  "characters_scrambled_count"
+);
+const timeTaken = document.getElementById("time_taken");
+  
 // // Takes the initial Text and puts them in array
 const initialText = document.getElementById("initial_text");
 initialText.addEventListener("change", () => {
@@ -57,10 +65,10 @@ const scrambleText = (OriginalArray, wordsToScrambleArray) => {
     }
   });
   const numberOfScannedWords = OriginalArray.length;
-  console.log(`number of scanned words: ${numberOfScannedWords}`);
-  console.log(`number of matched words: ${matchedCount}`);
-  console.log(`Character count: ${CharacterCount}`);
-  console.log(`Time taken: ${Date.now() - start} milliseconds`);
+   wordScannedCount.innerHTML = `number of scanned words: ${numberOfScannedWords}`;
+  wordsMatchedCount.innerHTML = `number of matched words: ${matchedCount}`;
+  charactersScrambledCount.innerHTML = `Character count: ${CharacterCount}`;
+  timeTaken.innerHTML = `Time taken: ${Date.now() - start} milliseconds`;
   return newArray.join(" ");
 };
 
